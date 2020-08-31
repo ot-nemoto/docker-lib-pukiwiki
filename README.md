@@ -19,6 +19,13 @@ docker build -t nemodija/pukiwiki:1.4.7 .
 docker run -d -it -p 80:80 --name wiki nemodija/pukiwiki:1.4.7
 ```
 
+wikiのディレクトリ(`/wiki`)をマウント
+
+```sh
+sudo chown -R 48:48 /wiki
+docker run -d -it -v /wiki:/var/www/html/wiki -p 80:80 --name wiki nemodija/pukiwiki:1.4.7
+```
+
 ## docker Push
 
 ```sh
