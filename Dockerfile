@@ -9,7 +9,9 @@ RUN yum update -y && \
 WORKDIR /root
 
 COPY pukiwiki-1.4.7_notb.tar.gz /root/pukiwiki-1.4.7_notb.tar.gz
-RUN tar -zxvf pukiwiki-1.4.7_notb.tar.gz -C /var/www/html && ln -s pukiwiki-1.4.7_notb /var/www/html/wiki
+RUN tar -zxvf pukiwiki-1.4.7_notb.tar.gz -C /var/www/html && \
+    ln -s pukiwiki-1.4.7_notb /var/www/html/wiki && \
+    chown -R $(id -u apache):$(id -g apache) /var/www/html/wiki/
 
 EXPOSE 80
 
