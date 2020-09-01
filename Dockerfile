@@ -13,6 +13,8 @@ RUN tar -zxvf pukiwiki-1.4.7_notb.tar.gz -C /var/www/html && \
     ln -s pukiwiki-1.4.7_notb /var/www/html/wiki && \
     chown -R $(id -u apache):$(id -g apache) /var/www/html/wiki/
 
+COPY config/basic-auth.conf /etc/httpd/conf.d/basic-auth.conf
+
 EXPOSE 80
 
 CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
