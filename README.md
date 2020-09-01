@@ -1,4 +1,4 @@
-# pukiwiki-on-centos
+# pukiwiki-container
 
 ## はじめに
 
