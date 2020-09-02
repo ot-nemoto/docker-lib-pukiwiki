@@ -10,13 +10,13 @@
 
 ```sh
 curl -LO http://prdownloads.sourceforge.jp/pukiwiki/12957/pukiwiki-1.4.7_notb.tar.gz
-docker build -t nemodija/pukiwiki:1.4.7 .
+docker build -t nemodija/pukiwiki:0.1 .
 ```
 
 ## docker run
 
 ```sh
-docker run -d -it -p 80:80 --name wiki nemodija/pukiwiki:1.4.7
+docker run -d -it -p 80:80 --name wiki nemodija/pukiwiki:0.1
 ```
 
 **以下は、ホスト側にwikiを配置(`/wiki`)し、マウントする場合**
@@ -31,13 +31,5 @@ htpasswd -c -b /wiki/.htpasswd <user> <password>
 
 ```sh
 sudo chown -R 48:48 /wiki
-docker run -d -it -v /wiki:/var/www/html/wiki -p 80:80 --name wiki nemodija/pukiwiki:1.4.7
-```
-
-
-## docker Push
-
-```sh
-docker login
-docker push nemodija/pukiwiki:1.4.7
+docker run -d -it -v /wiki:/var/www/html/wiki -p 80:80 --name wiki nemodija/pukiwiki:0.1
 ```
