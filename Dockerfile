@@ -4,7 +4,8 @@ COPY config/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 
 RUN yum update -y && \
     yum install -y --enablerepo=centosplus openssl-devel && \
-    yum install -y httpd httpd-devel php-devel php-mysql php-mbstring php-gd
+    yum install -y httpd httpd-devel php-devel php-mysql php-mbstring php-gd \
+                   sendmail sendmail-cf sendmail-devel mailx
 
 WORKDIR /root
 
