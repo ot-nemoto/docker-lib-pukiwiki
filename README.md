@@ -19,7 +19,7 @@ docker build -t nemodija/pukiwiki:0.9.1 .
 docker run -d -it -p 80:80 --name wiki nemodija/pukiwiki:0.9.1
 ```
 
-**以下は、ホスト側にwikiを配置(`/wiki`)し、マウントする場合**
+### ホスト側にwikiを配置(`/wiki`)し、マウントする
 
 .htpasswd がなければ、wiki配下にBasic認証ファイルを作成
 
@@ -34,7 +34,7 @@ sudo chown -R 48:48 /wiki
 docker run -d -it -v /wiki:/var/www/html/wiki -p 80:80 --name wiki nemodija/pukiwiki:0.9.1
 ```
 
-sendmailコマンドのSMTPサーバを指定
+### sendmailコマンドのSMTPサーバを指定する
 
 ```sh
 docker run -d -it -e MSP=mail -p 80:80 --name wiki nemodija/pukiwiki:0.9.1
