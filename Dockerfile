@@ -16,6 +16,8 @@ RUN tar -zxvf pukiwiki-1.4.7_notb.tar.gz -C /var/www/html && \
 
 COPY config/basic-auth.conf /etc/httpd/conf.d/basic-auth.conf
 
+RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
+
 COPY startup.sh startup.sh
 RUN chmod +x startup.sh
 
