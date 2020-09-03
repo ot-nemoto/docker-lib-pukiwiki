@@ -5,7 +5,7 @@ COPY config/CentOS-Base.repo /etc/yum.repos.d/CentOS-Base.repo
 RUN yum update -y && \
     yum install -y --enablerepo=centosplus openssl-devel && \
     yum install -y httpd httpd-devel php-devel php-mysql php-mbstring php-gd \
-                   sendmail sendmail-cf sendmail-devel mailx
+                   sendmail sendmail-cf sendmail-devel mailx make
 
 WORKDIR /root
 
@@ -16,6 +16,9 @@ RUN tar -zxvf pukiwiki-1.4.7_notb.tar.gz -C /var/www/html && \
 
 COPY config/basic-auth.conf /etc/httpd/conf.d/basic-auth.conf
 
+COPY startup.sh startup.sh
+RUN chmod +x startup.sh
+
 EXPOSE 80
 
-CMD ["/usr/sbin/httpd", "-D", "FOREGROUND"]
+CMD ["./startup.sh"]
