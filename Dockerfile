@@ -15,6 +15,7 @@ RUN tar -zxvf pukiwiki-1.4.7_notb.tar.gz -C /var/www/html && \
     chown -R $(id -u apache):$(id -g apache) /var/www/html/wiki/
 
 COPY config/basic-auth.conf /etc/httpd/conf.d/basic-auth.conf
+COPY config/redirect.conf /etc/httpd/conf.d/redirect.conf
 
 RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime
 
