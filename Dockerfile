@@ -23,6 +23,8 @@ RUN ln -sf  /usr/share/zoneinfo/Asia/Tokyo /etc/localtime && \
 COPY config/access-log.conf /etc/httpd/conf.d/access-log.conf
 RUN sed -i -e "s/^CustomLog/#CustomLog/g" /etc/httpd/conf/httpd.conf
 
+COPY favicon.ico /var/www/html/favicon.ico
+
 COPY startup.sh startup.sh
 RUN chmod +x startup.sh
 
